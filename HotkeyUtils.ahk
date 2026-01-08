@@ -28,7 +28,7 @@ class VersionManager_HotkeyUtils
     static _ := this._init()
     static _init()    {
         global
-        HOTKEYUTILS_VERSION := "1.1.2"
+        HOTKEYUTILS_VERSION := "2.0.0"
     }
 }
 hotkeySplit(hotkeyName)    {
@@ -120,7 +120,7 @@ hotkeyValidationStub_B5962F5B(*) => false
  * "Delete" and "Del" can be assigned simultaneously.
  */
 formatKeyTitleCase(key)    {
-    static list:=getListOfKeys_D27DF2D4()
+    static list:=getLowerToKeyNameMap()
     key:=format("{:L}",key)
     switch
     {
@@ -130,7 +130,7 @@ formatKeyTitleCase(key)    {
             return (codeType:=format("{:U}",m[1])) format(codeType=="SC"?"{:03X}":"{:02X}","0x" m[2])
     }
 }
-getListOfKeys_D27DF2D4()    { ;  https://www.autohotkey.com/docs/v2/KeyList.htm
+getLowerToKeyNameMap()    { ;  https://www.autohotkey.com/docs/v2/KeyList.htm
     static list
     if (!isSet(list))    {
         list:=map("lbutton","LButton"
