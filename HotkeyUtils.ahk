@@ -28,7 +28,7 @@ class VersionManager_HotkeyUtils
     static _ := VersionManager_HotkeyUtils._init()
     _init()    {
         global
-        HOTKEYUTILS_VERSION := "1.1.2"
+        HOTKEYUTILS_VERSION := "2.0.0"
     }
 }
 hotkeySplit(hotkeyName)    {
@@ -123,7 +123,7 @@ hotkeyValidationStub_B5962F5B(_*)    {
 formatKeyTitleCase(key)    {
     static list:=""
     if (list=="")
-        list:=getListOfKeys_D27DF2D4()
+        list:=getLowerToKeyNameMap()
     key:=format("{:L}",key)
     switch
     {
@@ -133,7 +133,7 @@ formatKeyTitleCase(key)    {
             return (codeType:=format("{:U}",m[1])) format(codeType=="SC"?"{:03X}":"{:02X}","0x" m[2])
     }
 }
-getListOfKeys_D27DF2D4()    { ;  https://www.autohotkey.com/docs/v1/KeyList.htm
+getLowerToKeyNameMap()    { ;  https://www.autohotkey.com/docs/v1/KeyList.htm
     static list:=""
     if (list=="")    {
         list:=object("lbutton","LButton"
